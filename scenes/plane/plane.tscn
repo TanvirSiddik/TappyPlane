@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://blwv4greim0x6"]
+
+[ext_resource type="Script" path="res://scenes/plane/plane.gd" id="1_nvstw"]
+[ext_resource type="Texture2D" uid="uid://bm2a3a2pn27kt" path="res://assets/plane/planes_sheet.png" id="1_vf52v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyq1j"]
+atlas = ExtResource("1_vf52v")
+region = Rect2(0, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phofc"]
+atlas = ExtResource("1_vf52v")
+region = Rect2(88, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d4po"]
+atlas = ExtResource("1_vf52v")
+region = Rect2(176, 0, 88, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_japbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyq1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phofc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d4po")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwxm4"]
+radius = 36.5
+height = 73.0
+
+[node name="plane" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_nvstw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 0)
+sprite_frames = SubResource("SpriteFrames_japbd")
+autoplay = "default"
+frame_progress = 0.923128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pwxm4")
