@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Fappy Pane"
+config/name="TappyPlane"
 run/main_scene="res://scenes/game/game.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
